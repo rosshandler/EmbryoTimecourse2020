@@ -68,25 +68,3 @@ for(i in 1:length(mol_loc)){
   write.table(colnames(unswapped$cleaned[[i]]), file = bc_loc[i], col.names = FALSE, row.names = FALSE, quote = FALSE)
   write.table(rownames(unswapped$cleaned[[i]]), file = gene_loc[i], col.names = FALSE, row.names = FALSE, quote = FALSE)
 }
-
-#######################
-####### 
-#INITIALISE FOLDERS
-my_folder=/hps/research1/marioni/ivan/EmbryoTimeCourse2020/cellranger_output/
-out_folder=${my_folder}
-err_folder=${my_folder}
-
-########
-#SELECT SCRIPT
-script_name=unswap.r
-
-#CHOOSE PARAMETERS
-#RAM in megabytes
-memory=200000
-#num_processors
-nproc=1
-
-bsub -e ${err_folder} \
--o ${out_folder} \
--M $memory -n $nproc -R rusage[mem=${memory}] -J ${script_name} \
-"Rscript /hps/research1/marioni/ivan/EmbryoTimeCourse2020/bsub_scripts/unswap.r"
