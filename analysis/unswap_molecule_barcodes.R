@@ -2,8 +2,6 @@
 ## Unswap molecule barcodes
 
 library(DropletUtils)
-library(ggplot2)
-library(cowplot)
 library(Matrix)
 
 sample_sheet_file <- "/hps/research1/marioni/ivan/EmbryoTimeCourse2020/data/embryo_extension_sample_metadata.txt"
