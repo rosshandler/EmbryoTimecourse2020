@@ -261,7 +261,7 @@ p = ggplot(data.frame(lib = lib.sizes, sample = samples), aes (x = factor(sample
   scale_color_brewer(palette = "Set1", name = "Sequencing\nbatch")
 suppressWarnings(plot(p))
 
-ggsave(paste0(path2data, "/QC/UMIs_distribution.pdf"))
+ggsave(paste0(path2data, "QC/UMIs_distribution.pdf"))
 
 p = ggplot(data.frame(mt = mt.fraction, sample = samples), aes (x = factor(sample, levels = unique(sample)), 
                                                            y = mt, fill = factor(batch))) +
