@@ -18,11 +18,11 @@ if (parallel == TRUE){
   register(mcparam)
 }
 
-path2data  <- "/hps/research1/marioni/ivan/EmbryoTimeCourse2020/data/"
-
 source("/hps/research1/marioni/ivan/EmbryoTimeCourse2020/core_scripts/core_functions.R")
 
 load_data2020(normalise = FALSE)
+
+path2data  <- "/hps/research1/marioni/ivan/EmbryoTimeCourse2020/data/"
 
 lib.sizes <- Matrix::colSums(counts(sce))
 sce       <- sce[calcAverage(sce)>0.1,]
