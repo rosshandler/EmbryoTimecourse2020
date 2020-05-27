@@ -27,7 +27,7 @@ load_data2020(normalise = FALSE)
 lib.sizes <- Matrix::colSums(counts(sce))
 sce       <- sce[calcAverage(sce)>0.1,]
 
-clusts = as.numeric(quickCluster(sce, method = "igraph", min.size = 100, BPPARAM = mcparam))
+clusts <- as.numeric(quickCluster(sce, method = "igraph", min.size = 100, BPPARAM = mcparam))
 
 path2data  <- "/hps/research1/marioni/ivan/EmbryoTimeCourse2020/data/"
 #saveRDS(clusts, file = paste0(path2data, "quickCluster.rds"))
