@@ -58,9 +58,10 @@ barcodes <- do.call(c, barcodes)
 writeMM(counts, file = paste0(path2data, "raw_counts.mtx"))
 write.table(barcodes, file = paste0(path2data,"barcodes.tsv",
   col.names = FALSE, row.names = FALSE, quote = FALSE)
-holder = file.copy(from = "/hps/research1/marioni/ivan/EmbryoTimeCourse2020/cellranger_output/SLX_18551/SIGAA11/outs/genes_unswapped.tsv", 
-                   to = paste0(path2data, "genes.tsv"),
-                   overwrite = TRUE)
+
+ file.copy(from = 
+  "/hps/research1/marioni/ivan/EmbryoTimeCourse2020/cellranger_output/SLX_18551/SIGAA11/outs/genes_unswapped.tsv", 
+  to = paste0(path2data, "genes.tsv"), overwrite = TRUE)
 
 sample     <- 1:68
 exp_design <- sample_sheet
