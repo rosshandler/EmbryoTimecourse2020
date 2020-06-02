@@ -118,10 +118,12 @@ plot_change <- function(barcodes, logical_keep){
 
   sample_names <- as.character(exp_design$sample_name[match(samples, exp_design$sample)])
 
-  pdf <- data.frame(Sample = as.character(exp_design$sample_name),
-                   Total = sapply(as.character(exp_design$sample_name), function(x) sum(sample_names == x)),
-                   Dropped = sapply(as.character(exp_design$sample_name), function(x) sum(!logical_keep[sample_names == x])),
-                   Retained = sapply(as.character(exp_design$sample_name), function(x) sum(logical_keep[sample_names == x])))
+  pdf <- data.frame(Sample  = as.character(exp_design$sample_name),
+                   Total    = sapply(as.character(exp_design$sample_name), function(x) sum(sample_names == x)),
+                   Dropped  = sapply(as.character(exp_design$sample_name),
+                                    function(x) sum(!logical_keep[sample_names == x])),
+                   Retained = sapply(as.character(exp_design$sample_name),
+                                     function(x) sum(logical_keep[sample_names == x])))
 
   p <- ggplot(data = pdf) +
           geom_bar(mapping = aes(y = Total, 
@@ -132,16 +134,17 @@ plot_change <- function(barcodes, logical_keep){
                                  x = factor(Sample, levels = as.character(exp_design$sample_name))), 
                    fill = "coral",
                    stat = "identity") +
-          geom_segment(mapping = aes(y = Total, 
+          geom_segment(mapping = aes(y.   = Total, 
                                      yend = Retained, 
-                                     x = factor(Sample, levels = as.character(exp_design$sample_name)),  
+                                     x    = factor(Sample, levels = as.character(exp_design$sample_name)),  
                                      xend = factor(Sample, levels = as.character(exp_design$sample_name))),
                        arrow = arrow(length = unit(0.1, "inches"))) +
           theme_bw() +
           labs(y = "Number of cells", x= "Sample") + theme(axis.text.x=element_text(angle = -90, hjust = 0))
-  pdf <- rbind(pdf, data.frame(Sample = "Total",
-                              Total = length(barcodes), 
-                              Dropped = sum(!logical_keep), 
+                             
+  pdf <- rbind(pdf, data.frame(Sample  = "Total",
+                              Total    = length(barcodes), 
+                              Dropped  = sum(!logical_keep), 
                               Retained = sum(logical_keep)))
     
   return(list(plot = p, df = pdf))
@@ -346,13 +349,14 @@ ggplot(exp, aes(x = cells, y = obs, col = tube_name)) +
 
 ggsave(paste0(path2data, "QC/UMIS_expectedVSobservedTubeName.pdf"))
 
+## Write output
 
-null_holder = writeMM(counts, file = paste0(path2data, "raw_counts_qc.mtx"))
+writeMM(counts, file = paste0(path2data, "raw_counts_qc.mtx"))
 
 saveRDS(as(counts, "dgCMatrix"), file = paste0(path2data, "raw_counts_qc.rds"))
 
 write.table(barcodes, file = paste0(path2data, "barcodes_qc.tsv"),
   row.names = F, col.names = F, quote = F, sep = "\t")
 
-write.table(meta, file = paste0(path2data, "meta.tab", row.names = F, col.names = T, quote = F, sep = "\t")
+write.table(meta, file = paste0(path2data, "meta.tab"), row.names = F, col.names = T, quote = F, sep = "\t")
 
