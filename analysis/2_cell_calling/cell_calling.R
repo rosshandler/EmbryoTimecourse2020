@@ -55,18 +55,21 @@ barcodes <- lapply(1:length(bcs), function(i) bcs[[i]][sigs[[i]]])
 counts   <- do.call(cbind, cells)
 barcodes <- do.call(c, barcodes)
 
-holder = writeMM(counts, file = paste0(path2data, "raw_counts.mtx"))
+writeMM(counts, file = paste0(path2data, "raw_counts.mtx"))
 write.table(barcodes, file = paste0(path2data,"barcodes.tsv",
   col.names = FALSE, row.names = FALSE, quote = FALSE)
 holder = file.copy(from = "/hps/research1/marioni/ivan/EmbryoTimeCourse2020/cellranger_output/SLX_18551/SIGAA11/outs/genes_unswapped.tsv", 
                    to = paste0(path2data, "genes.tsv"),
                    overwrite = TRUE)
 
-sample <- 1:68
+sample     <- 1:68
 exp_design <- sample_sheet
 
-exp_design$time_point[grep("^9$",exp_design$time_point)] <- paste0(exp_design$time_point[grep("^E9$",exp_design$time_point)],"9.0")
+exp_design$time_point[grep("^9$",exp_design$time_point)] <-
+  paste0(exp_design$time_point[grep("^E9$",exp_design$time_point)],"9.0")
+            
 exp_design$time_point <- paste0("E",exp_design$time_point)
+
 exp_design <- cbind(sample, exp_design)
 colnames(exp_design)[7] <- "stage"
 colnames(exp_design)[8] <- "embryo_tube"
@@ -77,10 +80,12 @@ exp_design <- cbind(exp_design[,1:7],tube_name,exp_design[,8:10])
 
 write.table(exp_design, file = paste0(path2data, "embryo_extension_experimental_design.txt"), quote = FALSE, row.names = FALSE, sep="\t")
                  
-summary_df <- data.frame(sample = 1:length(matrices), value = sapply(cells, ncol))
+summary_df       <- data.frame(sample = 1:length(matrices), value = sapply(cells, ncol))
 summary_df$stage <- exp_design$stage[match(summary_df$sample, exp_design$sample)]
+
 tab <- acast(summary_df, sample ~ stage, fill = 0)
 tab <- rbind(tab, colSums(tab))
 rownames(tab)[nrow(tab)] <- "Total"
+
 print(summary_df)
 
