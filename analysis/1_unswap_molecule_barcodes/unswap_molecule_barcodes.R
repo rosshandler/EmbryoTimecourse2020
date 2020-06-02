@@ -28,7 +28,7 @@ ratios = sapply(1:length(unswapped$cleaned), function(i){
 })
 
 for(i in 1:length(mol_loc)){
-  null_holder = writeMM(unswapped$cleaned[[i]], file = out_loc[i])
+  writeMM(unswapped$cleaned[[i]], file = out_loc[i])
   write.table(colnames(unswapped$cleaned[[i]]), file = bc_loc[i], col.names = FALSE, row.names = FALSE, quote = FALSE)
   write.table(rownames(unswapped$cleaned[[i]]), file = gene_loc[i], col.names = FALSE, row.names = FALSE, quote = FALSE)
 }
@@ -46,7 +46,7 @@ ratios = sapply(1:length(unswapped$cleaned), function(i){
 })
 
 for(i in 1:length(mol_loc)){
-  null_holder = writeMM(unswapped$cleaned[[i]], file = out_loc[i])
+  writeMM(unswapped$cleaned[[i]], file = out_loc[i])
   write.table(colnames(unswapped$cleaned[[i]]), file = bc_loc[i], col.names = FALSE, row.names = FALSE, quote = FALSE)
   write.table(rownames(unswapped$cleaned[[i]]), file = gene_loc[i], col.names = FALSE, row.names = FALSE, quote = FALSE)
 }
@@ -64,7 +64,7 @@ ratios = sapply(1:length(unswapped$cleaned), function(i){
 })
 
 for(i in 1:length(mol_loc)){
-  null_holder = writeMM(unswapped$cleaned[[i]], file = out_loc[i])
+  writeMM(unswapped$cleaned[[i]], file = out_loc[i])
   write.table(colnames(unswapped$cleaned[[i]]), file = bc_loc[i], col.names = FALSE, row.names = FALSE, quote = FALSE)
   write.table(rownames(unswapped$cleaned[[i]]), file = gene_loc[i], col.names = FALSE, row.names = FALSE, quote = FALSE)
 }
