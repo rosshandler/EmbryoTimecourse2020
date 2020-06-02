@@ -76,8 +76,23 @@ colnames(exp_design)[7] <- "stage"
 colnames(exp_design)[8] <- "embryo_tube"
 
 tube_name  <- strsplit(as.character(exp_design$embryo_tube), split="_")
-tube_name  <- unlist(lapply(tube_name, function(x) x[2]))
-exp_design <- cbind(exp_design[,1:7],tube_name,exp_design[,8:10])
+exp_design$tube_name  <- unlist(lapply(tube_name, function(x) x[2]))
+
+exp_design$sample_index <- paste0("SIGA", exp_design$index)
+                            
+exp_design <- exp_design[,c("sample", 
+                         "index",
+                         "sample_name",
+                         "sample_index",                      
+                         "sequencing_round",         
+                         "date_of_mating_setup",
+                         "date_time_of_cull",       
+                         "stage",
+                         "embryo_tube",
+                         "tube_name",
+                         "somite_count",     
+                         "cells_loaded",
+                         "estimated_captured_60perc")]
 
 write.table(exp_design, file = paste0(path2data, "embryo_extension_experimental_design.txt"), quote = FALSE, row.names = FALSE, sep="\t")
                  
