@@ -1,8 +1,8 @@
 ##
 ## Unswap molecule barcodes
 
-library(DropletUtils)
 library(Matrix)
+library(DropletUtils)
 
 sample_sheet_file <- "/hps/research1/marioni/ivan/EmbryoTimeCourse2020/data/embryo_extension_sample_metadata.txt"
 sample_sheet      <- read.table(sample_sheet_file, header = TRUE)
@@ -23,7 +23,7 @@ gene_loc <- paste0(paths[index], "/outs/genes_unswapped.tsv")
 
 unswapped <- swappedDrops(mol_loc, get.swapped = TRUE)
 
-ratios = sapply(1:length(unswapped$cleaned), function(i){
+ratios <- sapply(1:length(unswapped$cleaned), function(i){
   sum(unswapped$swapped[[i]])/(sum(unswapped$cleaned[[i]]) + sum(unswapped$swapped[[i]]))
 })
 
