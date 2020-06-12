@@ -1,7 +1,7 @@
 ########################
 ########################
 ####
-#### Integrate embryos: Generate batch corrected PCA
+#### Integrate embryos and generate batch corrected PCA
 ####
 ########################
 
