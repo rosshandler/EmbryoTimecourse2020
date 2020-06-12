@@ -26,7 +26,7 @@ source("/hps/research1/marioni/ivan/EmbryoTimeCourse2020/core_scripts/core_funct
 ## Integrate sce and generate several files (this is memory intense!)
 sceIntegrateEmbryos(path2sce_atlas = path2atlas, path2sce_extension = path2atlas_ext, path2out = path2integ)
 
-## Read Original Atlas
+## Batch corrected PCA
 load(file = paste0(path2atlas, "embryo_data.RData"))
 
 sce_atlas  <- sce
