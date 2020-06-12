@@ -8,19 +8,7 @@ library(ggplot2)
 library(biomaRt)
 library(matrixStats)
 
-parallel = FALSE
-#set it up for scran to be properly parallelised
-if (parallel == TRUE){
-  library(BiocParallel)
-  ncores  = 10
-  mcparam = SnowParam(workers = ncores)
-  register(mcparam)
-}else{
-  library(BiocParallel)
-  ncores  = 1
-  mcparam = SnowParam(workers = ncores)
-  register(mcparam)
-}
+setParallel(ncores = 1)
 
 source("/hps/research1/marioni/ivan/EmbryoTimeCourse2020/core_scripts/core_functions.R")
 
@@ -37,8 +25,8 @@ names(hvg.list) <- unique(meta$sample)
 
 set.seed(42)
 scores_hvgs <- lapply(1:length(sub_sces), function(i) doubletCells(sub_sces[[i]],
-                                                                  approximate = TRUE,
-                                                                  subset.row = rownames(sub_sces[[i]]) %in% hvg.list[[i]]))
+                 approximate = TRUE, subset.row = rownames(sub_sces[[i]]) %in% hvg.list[[i]]))
+
 scores_hvgs <- do.call(c, scores_hvgs)
 scores      <- scores_hvgs
 
