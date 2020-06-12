@@ -4,19 +4,7 @@ library(scater)
 library(igraph)
 library(BiocParallel)
 
-parallel = FALSE
-#set it up for scran to be properly parallelised
-if (parallel == TRUE){
-  library(BiocParallel)
-  ncores = 10
-  mcparam = SnowParam(workers = ncores)
-  register(mcparam)
-}else{
-  library(BiocParallel)
-  ncores = 1
-  mcparam = SnowParam(workers = ncores)
-  register(mcparam)
-}
+setParallel(ncores = 1)
 
 source("/hps/research1/marioni/ivan/EmbryoTimeCourse2020/core_scripts/core_functions.R")
 
