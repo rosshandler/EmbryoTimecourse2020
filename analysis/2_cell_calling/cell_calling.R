@@ -1,22 +1,10 @@
 ##
 ## Cell calling
 
-library(DropletUtils)
 library(Matrix)
+library(DropletUtils)
 
-parallel = FALSE
-#set it up for scran to be properly parallelised
-if (parallel == TRUE){
-  library(BiocParallel)
-  ncores = 10
-  mcparam = SnowParam(workers = ncores)
-  register(mcparam)
-}else{
-  library(BiocParallel)
-  ncores = 1
-  mcparam = SnowParam(workers = ncores)
-  register(mcparam)
-}
+setParallel(ncores = 1)
 
 path2data  <- "/hps/research1/marioni/ivan/EmbryoTimeCourse2020/data/"
 
@@ -94,7 +82,8 @@ exp_design <- exp_design[,c("sample",
                          "cells_loaded",
                          "estimated_captured_60perc")]
 
-write.table(exp_design, file = paste0(path2data, "embryo_extension_experimental_design.txt"), quote = FALSE, row.names = FALSE, sep="\t")
+write.table(exp_design, file = paste0(path2data, "embryo_extension_experimental_design.txt"),
+  quote = FALSE, row.names = FALSE, sep="\t")
                  
 summary_df       <- data.frame(sample = 1:length(matrices), value = sapply(cells, ncol))
 summary_df$stage <- exp_design$stage[match(summary_df$sample, exp_design$sample)]
