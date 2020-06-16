@@ -1,9 +1,4 @@
-########################
-########################
-####
-#### Integrate embryos and generate batch corrected PCA
-####
-########################
+## Integrate embryos and generate batch corrected PCA
 
 library(irlba)
 library(scran)
