@@ -11,11 +11,6 @@ path2atlas     <- "/hps/research1/marioni/ivan/EmbryoTimeCourse/atlas/data/"
 path2integ     <- "/hps/research1/marioni/ivan/EmbryoTimeCourse2020/Integrated_Atlas/"
 cluster <- "ebi"
 
-#path2atlas_ext <- "/mnt/b/iimaz/embryos/"
-#path2atlas     <- "/mnt/b/iimaz/embryos/"
-#path2integ     <- "/mnt/b/iimaz/embryos/"
-#cluster <- "ema"
-
 source("/hps/research1/marioni/ivan/EmbryoTimeCourse2020/core_scripts/core_functions.R")
 
 ## Integrate sce and generate several files (this is memory intense!)
