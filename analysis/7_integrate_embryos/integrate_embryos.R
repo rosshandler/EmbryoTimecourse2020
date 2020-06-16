@@ -6,7 +6,7 @@ library(Matrix)
 library(batchelor)
 library(SingleCellExperiment)
 
-path2atlas_ext <-  "/hps/research1/marioni/ivan/EmbryoTimeCourse2020/data/"
+path2atlas_ext <- "/hps/research1/marioni/ivan/EmbryoTimeCourse2020/data/"
 path2atlas     <- "/hps/research1/marioni/ivan/EmbryoTimeCourse/atlas/data/"
 path2integ     <- "/hps/research1/marioni/ivan/EmbryoTimeCourse2020/Integrated_Atlas/"
 cluster <- "ebi"
