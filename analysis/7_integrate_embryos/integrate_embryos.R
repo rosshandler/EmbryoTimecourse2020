@@ -51,3 +51,33 @@ integrated_corrected_pcs <- embryoBatchCorrection(
 
 saveRDS(integrated_corrected_pcs,
   file = paste0(path2integ, "integrated_reverse_corrected_pcs.rds"))
+
+
+## Load original atlas metadata extended by mixed gastrulation stage mapping (QC passed)
+meta_atlas <- readRDS("metadata_mixgast_extended.rds")
+
+## Integrate metadata
+integrated_meta <- embryoPreMetaData(atlas_meta = meta_atlas, extension_meta = meta_ext)
+saveRDS(integrated_meta, file = "integrated_premeta_v0.rds")
+
+integrated_meta_e95  <- integrated_meta[integrated_meta$stage == "E9.5",]
+integrated_meta_e925 <- integrated_meta[integrated_meta$stage == "E9.25",]
+
+## Collapsing E9.5 and E9.25
+integrated_meta$stage        <- gsub("E9.5", "E9.25", integrated_meta$stage)
+integrated_meta$stage.mapped <- gsub("E9.5", "E9.25", integrated_meta$stage.mapped)
+
+saveRDS(integrated_meta, file="integrated_premeta_stage_collapsed.rds")
+
+meta1 <- readRDS("integrated_premeta_stage_collapsed.rds")
+meta2 <- readRDS("integrated_premeta_v0.rds")
+
+meta2$stage.collapsed        <- meta1$stage
+meta2$stage.mapped.collapsed <- meta1$stage.mapped
+
+names_order <- c("cell", "sample", "stage", "stage.mapped", "stage.collapsed", "stage.mapped.collapsed",
+  "somite_count", "tube_name", "celltype", "doub.density")
+
+saveRDS(meta2[,names_order], file="integrated_premeta_v1.rds")
+
+
