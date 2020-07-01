@@ -4,9 +4,9 @@ library(scater)
 library(igraph)
 library(BiocParallel)
 
-setParallel(ncores = 1)
-
 source("/hps/research1/marioni/ivan/EmbryoTimeCourse2020/core_scripts/core_functions.R")
+
+setParallel(ncores = 1)
 
 load_data2020(normalise = FALSE)
 
