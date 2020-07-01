@@ -37,10 +37,9 @@ res <- mapWrap_extended(
 
 saveRDS(res, file = paste0(path2integ, "maping_withinE85.rds"))
 
-#######
-####### Update metadata and Generate WOT cell-set files for round 1 of annotation
-#######
-res  <- readRDS(paste0(path2integ, "maping_withinE85.rds"))
+
+## Update metadata
+
 meta <- readRDS(paste0(path2integ, "integrated_premeta_v1.rds"))
 
 e85index <- match(gsub("map_", "ext_", res$mapping$cell), meta$cell)
