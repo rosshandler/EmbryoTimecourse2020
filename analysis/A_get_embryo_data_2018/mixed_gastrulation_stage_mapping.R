@@ -7,8 +7,7 @@ library(BiocNeighbors)
 library(SingleCellExperiment)
 
 path2atlas  <- "/hps/research1/marioni/ivan/EmbryoTimeCourse/atlas/data/"
-
-source(paste0(path2code, "embryo_marionilab_extended.r"))
+path2code   <- "/hps/research1/marioni/ivan/EmbryoTimeCourse2020/core_scripts/"
 
 load(paste0(path2atlas, "embryo_data.RData"))
 
@@ -25,6 +24,8 @@ dim(sce_mg)
 #[1] 29452  7455
 
 ## Mapping mixed_gastrulation cells to embryo stages in the atlas time course
+
+source(paste0(path2code, "core_functions.R"))
 
 res <- mapWrap_extended(atlas_sce = sce_atlas, atlas_meta = meta_atlas,
   map_sce = sce_mg, map_meta = meta_mg, k = 30)
