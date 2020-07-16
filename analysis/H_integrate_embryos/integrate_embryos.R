@@ -14,7 +14,15 @@ cluster <- "ebi"
 source("/hps/research1/marioni/ivan/EmbryoTimeCourse2020/core_scripts/core_functions.R")
 
 ## Integrate sce and generate several files (this is memory intense!)
-sceIntegrateEmbryos(path2sce_atlas = path2atlas, path2sce_extension = path2atlas_ext, path2out = path2integ)
+sceIntegrateEmbryosStep1(path2sce_atlas = path2atlas, path2sce_extension = path2atlas_ext, path2out = path2integ)
+
+sceIntegrateEmbryosStep2(path2working_dir = path2integ)
+
+sceIntegrateEmbryosStep3counts(path2working_dir = path2integ)
+
+sceIntegrateEmbryosStep3logcounts(path2working_dir = path2integ)
+
+sceIntegrateEmbryosStep4(path2working_dir = path2integ)
 
 ## Batch corrected PCA
 load(file = paste0(path2atlas, "embryo_data.RData"))
