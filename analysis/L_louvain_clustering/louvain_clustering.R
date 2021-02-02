@@ -1,12 +1,12 @@
-library(Matrix)
-library(igraph)
-
 library(scran)
 #set it up for scran to be properly parallelised
 library(BiocParallel)
 ncores  = 16
 mcparam = SnowParam(workers = ncores)
 register(mcparam)
+
+library(Matrix)
+library(igraph)
 
 path2integ <- "/hps/research1/marioni/ivan/EmbryoTimeCourse2020/Integrated_Atlas/"
 
