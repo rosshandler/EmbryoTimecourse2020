@@ -11,7 +11,7 @@ register(mcparam)
 path2integ <- "/hps/research1/marioni/ivan/EmbryoTimeCourse2020/Integrated_Atlas/"
 
 corrected <- readRDS(paste0(path2integ, "integrated_corrected_pcs.rds"))
-meta      <- readRDS(paste0(path2integ, "integrated_premeta_e85wot.rds"))
+meta      <- readRDS(paste0(path2integ, "integrated_premeta_e85wot_somites.rds"))
 
 graph <- buildSNNGraph(corrected, BPPARAM = mcparam, d = NA, transposed = TRUE)
 
