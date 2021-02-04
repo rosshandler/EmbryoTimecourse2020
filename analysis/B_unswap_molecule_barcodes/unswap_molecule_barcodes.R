@@ -27,6 +27,10 @@ ratios <- sapply(1:length(unswapped$cleaned), function(i){
   sum(unswapped$swapped[[i]])/(sum(unswapped$cleaned[[i]]) + sum(unswapped$swapped[[i]]))
 })
 
+ratios_SLX_18551 <- ratios
+
+saveRDS(ratios_SLX_18551, paste0("/hps/research1/marioni/ivan/EmbryoTimeCourse2020/data/","swapping_ratios_SLX_18551.rds"))
+
 for(i in 1:length(mol_loc)){
   writeMM(unswapped$cleaned[[i]], file = out_loc[i])
   write.table(colnames(unswapped$cleaned[[i]]), file = bc_loc[i], col.names = FALSE, row.names = FALSE, quote = FALSE)
@@ -45,6 +49,9 @@ ratios = sapply(1:length(unswapped$cleaned), function(i){
   sum(unswapped$swapped[[i]])/(sum(unswapped$cleaned[[i]]) + sum(unswapped$swapped[[i]]))
 })
 
+ratios_SLX_18597 <- ratios
+saveRDS(ratios_SLX_18597, paste0("/hps/research1/marioni/ivan/EmbryoTimeCourse2020/data/","swapping_ratios_SLX_18597.rds"))
+
 for(i in 1:length(mol_loc)){
   writeMM(unswapped$cleaned[[i]], file = out_loc[i])
   write.table(colnames(unswapped$cleaned[[i]]), file = bc_loc[i], col.names = FALSE, row.names = FALSE, quote = FALSE)
@@ -62,6 +69,9 @@ unswapped <- swappedDrops(mol_loc, get.swapped = TRUE)
 ratios = sapply(1:length(unswapped$cleaned), function(i){
   sum(unswapped$swapped[[i]])/(sum(unswapped$cleaned[[i]]) + sum(unswapped$swapped[[i]]))
 })
+
+ratios_SLX_18943 <- ratios
+saveRDS(ratios_SLX_18943, paste0("/hps/research1/marioni/ivan/EmbryoTimeCourse2020/data/","swapping_ratios_SLX_18943.rds"))
 
 for(i in 1:length(mol_loc)){
   writeMM(unswapped$cleaned[[i]], file = out_loc[i])
