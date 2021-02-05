@@ -78,3 +78,13 @@ for(i in 1:length(mol_loc)){
   write.table(colnames(unswapped$cleaned[[i]]), file = bc_loc[i], col.names = FALSE, row.names = FALSE, quote = FALSE)
   write.table(rownames(unswapped$cleaned[[i]]), file = gene_loc[i], col.names = FALSE, row.names = FALSE, quote = FALSE)
 }
+
+ratios_SLX_18551 <- readRDS(paste0("/hps/research1/marioni/ivan/EmbryoTimeCourse2020/data/","swapping_ratios_SLX_18551.rds"))
+
+ratios_SLX_18597 <- readRDS(paste0("/hps/research1/marioni/ivan/EmbryoTimeCourse2020/data/","swapping_ratios_SLX_18597.rds"))
+
+ratios_SLX_18943 <- readRDS(paste0("/hps/research1/marioni/ivan/EmbryoTimeCourse2020/data/","swapping_ratios_SLX_18943.rds"))
+
+pdf(paste0("/hps/research1/marioni/ivan/EmbryoTimeCourse2020/data/", "swappping_ratio_hist.pdf"))
+hist(c(ratios_SLX_18551, ratios_SLX_18597, ratios_SLX_18943)*100, col = "gray", xlab="Swapping molecules percentage", ylab="Numner of samples", main="")
+dev.off()
