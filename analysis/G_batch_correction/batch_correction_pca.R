@@ -37,7 +37,34 @@ load_data2020(remove_doublets = TRUE, remove_stripped = TRUE)
 
 path2data  <- "/hps/research1/marioni/ivan/EmbryoTimeCourse2020/data/"
 
-# HVGs, PCA and Batch correction 
+chrY.genes.file <- "/hps/research1/marioni/ivan/EmbryoTimeCourse/atlas/data/ygenes.tab"
+
+# HVGs, PCA and Batch correction
+
+trend  <- scran::trendVar(sce, use.spikes = FALSE, loess.args = list(span = 0.05))
+decomp <- scran::decomposeVar(sce, fit = trend)
+decomp <- decomp[decomp$mean > 1e-3,]
+
+xist <- "ENSMUSG00000086503"
+ychr <- read.table(chrY.genes.file, stringsAsFactors = FALSE)[,1]
+
+decomp <- decomp[!rownames(decomp) %in% c(xist, ychr, other),]
+decomp$FDR <- p.adjust(decomp$p.value, method = "fdr")
+
+hvgs_colour <- rep("black",nrow(decomp))
+#hvgs_colour[decomp$p.value < 0.05] <- "yellow3"
+hvgs_colour[decomp$FDR < 0.05] <- "yellow3"
+
+pdf("/hps/research1/marioni/ivan/EmbryoTimeCourse2020/data/hvgs_trend.pdf")
+pl.index <- order(decomp$p.value, decreasing=TRUE)
+plot(trend$mean[pl.index], trend$var[pl.index], col=hvgs_colour[pl.index], pch=19, cex=.75, 
+     xlab="Mean log expression", ylab="Variance of log expression", bty="n", ylim=c(0,3))
+#x <- sort(trend$mean)
+#lines(x, trend$trend(x), col="dodgerblue", lwd=2)
+curve(trend$trend(x), col="red", lwd=2, add=TRUE)
+grid()
+dev.off()
+
 nPCs <- 50
 hvgs     <- getHVGs(sce, computer = "ebi")
 base_pca <- prcomp_irlba(t(logcounts(sce)[rownames(sce) %in% hvgs,]), n = nPCs)$x
