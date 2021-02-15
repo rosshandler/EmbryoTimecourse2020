@@ -195,6 +195,10 @@ mt.fraction <- colSums(mt.counts)/lib.sizes
 mt.p   <- pnorm(mt.fraction, mean = median(mt.fraction), sd = mad(mt.fraction), lower.tail = FALSE)
 mt.lim <- min(mt.fraction[which(p.adjust(mt.p, method = "fdr") < 0.05)])
 
+#Threhdold
+mt.lim
+#[1] 0.04680187
+            
 qplot(lib.sizes, mt.fraction, col = ifelse(mt.fraction>mt.lim, "drop", "keep")) +
   scale_x_log10() +
   labs(x = "UMI count", y = "MT read fraction") +
