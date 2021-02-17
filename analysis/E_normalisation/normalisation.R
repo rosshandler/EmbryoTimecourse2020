@@ -30,9 +30,11 @@ ggplot(data = data.frame(X = lib.sizes, Y = sizeFactors(sce)),
   geom_point() +
   scale_x_log10(breaks = c(5000, 10000, 50000, 100000), labels = c("5,000", "10,000", "50,000", "100,000") ) +
   scale_y_log10(breaks = c(0.2, 1, 5)) +
+  theme_minimal() +
+  theme(text = element_text(size=20))  +
   labs(x = "Number of UMIs", y = "Size Factor")
 
-ggsave(paste0(path2data, "QC/sizefactors.pdf")
+ggsave(paste0(path2data, "QC/sizefactors.pdf"))
 
 write.table(sizeFactors(sce), quote = F, col.names = F, row.names = F,
   file = paste0(path2data, "sizefactors.tab"))
