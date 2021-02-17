@@ -156,6 +156,8 @@ plot_change <- function(barcodes, logical_keep){
 qplot(lib.sizes, ngenes, col = ifelse(ngenes < 1000, "drop", "keep")) +
   scale_x_log10() +
   scale_y_log10() +
+  theme_minimal() + 
+  theme(text = element_text(size=20),legend.position = "none")  +
   labs(x = "UMI count", y = "Number of expressed genes") +
   scale_color_manual(values = c("drop" = "grey50", "keep" = "black"), name = "")
 
@@ -202,6 +204,8 @@ mt.lim
 qplot(lib.sizes, mt.fraction, col = ifelse(mt.fraction>mt.lim, "drop", "keep")) +
   scale_x_log10() +
   labs(x = "UMI count", y = "MT read fraction") +
+  theme_minimal() + 
+  theme(text = element_text(size=20),legend.position = "none")  +
   scale_color_manual(values = c("drop" = "grey50", "keep" = "black"), name = "")
 
 ggsave(paste0(path2data, "QC/mtreadfraction.pdf"))
