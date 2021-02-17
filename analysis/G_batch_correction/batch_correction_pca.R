@@ -65,16 +65,15 @@ curve(trend$trend(x), col="red", lwd=2, add=TRUE)
 grid()
 dev.off()
 
+dec <- modelGeneVar(sce)
 hvgs_colour <- rep("black",nrow(dec))
-#hvgs_colour[decomp$p.value < 0.05] <- "yellow3"
 hvgs_colour[dec$FDR < 0.05] <- "yellow3"
 
-dec <- modelGeneVar(sce)
 pdf("/hps/research1/marioni/ivan/EmbryoTimeCourse2020/data/hvgs_trend_2020.pdf")
 pl.index <- order(dec$FDR, decreasing=TRUE)
 plot(dec$mean[pl.index], dec$total[pl.index], col=hvgs_colour[pl.index], pch=19, cex=.75, 
      xlab="Mean log expression", ylab="Variance of log expression", bty="n", ylim=c(0,3))
-curve(metadata(dec)$trend(x), add=TRUE, col="dodgerblue")
+curve(metadata(dec)$trend(x), add=TRUE, col="red")
 grid()
 dev.off()
 
