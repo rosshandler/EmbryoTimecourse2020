@@ -113,3 +113,103 @@ sceIntegrateEmbryosStep1 <- function(path2sce_atlas, path2sce_extension, path2ou
   saveRDS(logcounts, paste0(path2out, "integrated_logcounts_sparse.rds"))
 
 }
+
+sceIntegrateEmbryosStep2 <- function(path2working_dir){
+
+  gene_map <- read.delim(paste0(path2working_dir, "shared_genesyms.txt"), header = TRUE, sep=" ")
+
+  counts    <- readRDS(paste0(path2working_dir, "integrated_counts_sparse.rds"))
+  counts    <- counts[rowSums(counts) != 0,]
+  genes     <- intersect(unique(gene_map$ensembl_gene_id), rownames(counts))
+  counts    <- counts[genes,]
+
+  logcounts <- readRDS(paste0(path2working_dir, "integrated_logcounts_sparse.rds"))
+  logcounts <- logcounts[rowSums(logcounts) != 0,]
+  genes     <- intersect(unique(gene_map$ensembl_gene_id), rownames(logcounts))
+  logcounts <- logcounts[genes,]
+
+  writeLines(colnames(counts), con = paste0(path2working_dir, "integrated_barcodes.txt"))
+  writeLines(genes, con = paste0(path2working_dir, "integrated_genes.txt"))
+
+  sce_sparse <- SingleCellExperiment(assays = list(counts = counts,
+    logcounts = logcounts))
+  saveRDS(sce_sparse, file = paste0(path2working_dir, "integrated_sce_sparse.rds"))
+
+  writeMM(counts, file = paste0(path2working_dir, "integrated_raw_counts_qc.mtx"))
+  writeMM(t(counts), file = paste0(path2working_dir, "integrated_raw_counts_qc_transposed.mtx"))
+
+}
+
+sceIntegrateEmbryosStep3counts <- function(path2working_dir){
+
+  counts    <- counts(readRDS(paste0(path2working_dir, "integrated_sce_sparse.rds")))
+
+  c1 <- as.data.table(as.matrix(counts[,1:50000]), keep.rownames=TRUE)
+  c2 <- as.data.table(as.matrix(counts[,50001:100000]), keep.rownames=FALSE)
+  c3 <- as.data.table(as.matrix(counts[,100001:150000]), keep.rownames=FALSE)
+  c4 <- as.data.table(as.matrix(counts[,150001:200000]), keep.rownames=FALSE)
+  c5 <- as.data.table(as.matrix(counts[,200001:250000]), keep.rownames=FALSE)
+  c6 <- as.data.table(as.matrix(counts[,250001:300000]), keep.rownames=FALSE)
+  c7 <- as.data.table(as.matrix(counts[,300001:350000]), keep.rownames=FALSE)
+  c8 <- as.data.table(as.matrix(counts[,350001:400000]), keep.rownames=FALSE)
+  c9 <- as.data.table(as.matrix(counts[,400001:ncol(counts)]), keep.rownames=FALSE)
+  dt <- cbind(c1,c2,c3,c4,c5,c6,c7,c8,c9)
+  colnames(dt)[1] <- "ensembl_id"
+  fwrite(dt, file = paste0(path2working_dir, "integrated_counts_datatable.tab"),
+    sep = "\t", row.names = FALSE, col.names = TRUE)
+  fwrite(t(dt), file = paste0(path2working_dir, "integrated_counts_datatable_transposed.tab"),
+    sep = "\t", row.names = FALSE, col.names = TRUE)
+}
+
+sceIntegrateEmbryosStep3logcounts <- function(path2working_dir){
+
+  logcounts <- logcounts(readRDS(paste0(path2working_dir, "integrated_sce_sparse.rds")))
+
+  c1 <- as.data.table(as.matrix(logcounts[,1:50000]), keep.rownames=TRUE)
+  c2 <- as.data.table(as.matrix(logcounts[,50001:100000]), keep.rownames=FALSE)
+  c3 <- as.data.table(as.matrix(logcounts[,100001:150000]), keep.rownames=FALSE)
+  c4 <- as.data.table(as.matrix(logcounts[,150001:200000]), keep.rownames=FALSE)
+  c5 <- as.data.table(as.matrix(logcounts[,200001:250000]), keep.rownames=FALSE)
+  c6 <- as.data.table(as.matrix(logcounts[,250001:300000]), keep.rownames=FALSE)
+  c7 <- as.data.table(as.matrix(logcounts[,300001:350000]), keep.rownames=FALSE)
+  c8 <- as.data.table(as.matrix(logcounts[,350001:400000]), keep.rownames=FALSE)
+  c9 <- as.data.table(as.matrix(logcounts[,400001:ncol(logcounts)]), keep.rownames=FALSE)
+  dt <- cbind(c1,c2,c3,c4,c5,c6,c7,c8,c9)
+  colnames(dt)[1] <- "ensembl_id"
+  fwrite(dt, file = paste0(path2working_dir, "integrated_logcounts_datatable.tab"),
+    sep = "\t", row.names = FALSE, col.names = TRUE)
+
+}
+
+sceIntegrateEmbryosStep4 <- function(path2working_dir){
+
+  counts    <- fread(file = paste0(path2working_dir, "integrated_counts_datatable.tab"))
+  logcounts <- fread(file = paste0(path2working_dir, "integrated_logcounts_datatable.tab"))
+
+  sce <- SingleCellExperiment(assays = list(counts = as.matrix(counts[,-1]),
+   logcounts = as.matrix(logcounts[,-1])))
+  rownames(sce) <- counts$ensembl_id
+
+  saveRDS(sce, file =paste0(path2working_dir, "integrated_sce.rds"))
+}
+
+sceIntegrateEmbryosADATA <- function(path2working_dir){
+
+  logcounts <- readRDS(paste0(path2working_dir, "integrated_logcounts_sparse.rds"))
+
+  c1 <- as.data.table(as.matrix(logcounts[,1:50000]), keep.rownames=TRUE)
+  c2 <- as.data.table(as.matrix(logcounts[,50001:100000]), keep.rownames=FALSE)
+  c3 <- as.data.table(as.matrix(logcounts[,100001:150000]), keep.rownames=FALSE)
+  c4 <- as.data.table(as.matrix(logcounts[,150001:200000]), keep.rownames=FALSE)
+  c5 <- as.data.table(as.matrix(logcounts[,200001:250000]), keep.rownames=FALSE)
+  c6 <- as.data.table(as.matrix(logcounts[,250001:300000]), keep.rownames=FALSE)
+  c7 <- as.data.table(as.matrix(logcounts[,300001:350000]), keep.rownames=FALSE)
+  c8 <- as.data.table(as.matrix(logcounts[,350001:400000]), keep.rownames=FALSE)
+  c9 <- as.data.table(as.matrix(logcounts[,400001:ncol(logcounts)]), keep.rownames=FALSE)
+  dt <- cbind(c1,c2,c3,c4,c5,c6,c7,c8,c9)
+  colnames(dt)[1] <- "ensembl_id"
+  fwrite(dt, file = paste0(path2working_dir, "integrated_logcounts_datatable_adata.tab"),
+    sep = "\t", row.names = FALSE, col.names = TRUE)
+
+}  
+
