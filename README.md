@@ -26,7 +26,7 @@ Various forms of the transcriptomics data are available [here](to be located at 
 | File name                                                    | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | `data.h5ad`                                                | AnnData object with raw counts for processing with [scanpy](https://scanpy.readthedocs.io/en/stable/index.html). |
-| `data_processed.h5ad`                                                  | AnnData object with log normalised counts, metadata and main layouts. |
+| `data_processed.h5ad`                                                  | AnnData object with log normalised counts, metadata and main batch corrected layouts. |
 | `sce.rds`                                                  | Contains a `SingleCellExperiment` object for processing in R. |
 | `counts.mtx`                                               | Counts matrix in MatrixMarket format                         |
 | `logcounts.mtx`                                            | Normalised logcounts in MatrixMarket format                  |
