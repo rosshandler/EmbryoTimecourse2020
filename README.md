@@ -6,7 +6,7 @@
 ### Table of Contents
 
 1. [Paper abstract](#Abstract)
-2. [Data availability](#Data availability)
+2. [Data availability](#Data_availability)
 3. [Explore the data](#Explore the data)
 4. [Code availability](#Code availability)
 5. [Contact](#Support or Contact)
