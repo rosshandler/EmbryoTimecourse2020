@@ -6,7 +6,7 @@
 ### Table of Contents
 
 1. [Paper abstract](#Abstract)
-2. [Data availability](#Data_availability)
+2. [Data availability](#Data availability)
 3. [Explore the data](#Explore_the_data)
 4. [Code availability](#Code_availability)
 5. [Contact](#Support_or_Contact)
@@ -18,7 +18,7 @@
 
 Early organogenesis represents a key step in animal development, whereby pluripotent cells divide and diversify to initiate formation of all major organs. Tracking the underlying processes represents a fundamental question in developmental biology, with implications for producing authentic cell types in vitro and in vivo organ regeneration and repair. Here, we report over 300,000 new single cell RNA-Seq (scRNA-Seq) transcriptomes sampled in 6 hour intervals from mouse embryos between E8.5 and E9.5 days of development. Combining this dataset with our previous E6.5 to E8.5 atlas resulted in a densely-sampled time course of over 400,000 cells from early gastrulation to organogenesis. We performed computational lineage reconstruction at full organismal scale, which identified complex waves of blood and endothelial development revealing their distinct molecular programmes. To anchor computational cell fate predictions in experimentation, we dissected the E7.5 primitive streak into four sequential segments, and showed fates predicted from scRNA-Seq were in good agreement with the known fate outcomes of different primitive streak portions. To further define early developmental state / fate relationships, we performed orthotopic transplantation of primitive streak segments followed by 24h static in vitro embryo culture and assessed grafted cells based on morphological observation of cell type contribution and scRNA-Seq. Taking advantage of both ubiquitous and lineage-specific reporter genes, we show how a comprehensive single cell atlas provides a powerful resource to revisit classical grafting experiments to establish high-resolution cell state / fate relationships. Our study thus reports a resource coupled with an interdisciplinary approach to advance both conventional developmental biology as well as regenerative medicine.
 
-### Data_availability
+### Data availability
 
 This data is an extension of a previously reported scRNA-Seq atlas covering mouse gastrulation and the early initiation of organogenesis through a densely sampled time-course of 6h sampling intervals from E6.5 to E8.5 (Pijuan-Sala B., Griffiths J. A., Guibentif C. et. all, 2019) with newly sampled time points (E8.75-E9.5) as well as one overlapping time point (E8.5) to facilitate data integration. Combined, the new ‘extended’ atlas, ranging from E6.5 to E9.5 contains 430,339 cells across 13 time points spanning 3 days of mouse development 
 
