@@ -6,15 +6,10 @@
 ### Table of Contents
 
 1. [Paper abstract](#Abstract)
-
 2. [Data availability](#Data availability)
-
 3. [Explore the data](#Explore the data)
-
 4. [Code availability](#Code availability)
-
 5. [Contact](#Support or Contact)
-
 6. [Other links](#Other links)
 
    
