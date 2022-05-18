@@ -20,7 +20,7 @@ Early organogenesis represents a key step in animal development, whereby pluripo
 
 ### Data availability
 
-This data is an extension of a previously reported scRNA-Seq atlas covering mouse gastrulation and the early initiation of organogenesis through a densely sampled time-course of 6h sampling intervals from E6.5 to E8.5 (Pijuan-Sala B., Griffiths J. A., Guibentif C. et. al, 2019) with newly sampled time points (E8.75-E9.5) as well as one overlapping time point (E8.5) to facilitate data integration. Combined, the new ‘extended’ atlas, ranging from E6.5 to E9.5 contains 430,339 cells across 13 time points spanning 3 days of mouse development 
+This data is an extension of a previously reported scRNA-Seq atlas covering mouse gastrulation and the early initiation of organogenesis through a densely sampled time-course of 6h sampling intervals from E6.5 to E8.5 (Pijuan-Sala B., Griffiths J. A., Guibentif C. et al., 2019) with newly sampled time points (E8.75-E9.5) as well as one overlapping time point (E8.5) to facilitate data integration. Combined, the new ‘extended’ atlas, ranging from E6.5 to E9.5 contains 430,339 cells across 13 time points spanning 3 days of mouse development 
 
 Various forms of the transcriptomics data are available [here](to be located at JCBC) for loading into R and python. 
 | File name                                                    | Description                                                  |
