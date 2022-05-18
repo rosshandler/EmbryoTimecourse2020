@@ -6,11 +6,11 @@
 ### Table of Contents
 
 1. [Paper abstract](#Abstract)
-2. [Data availability](#'Data availability')
-3. [Explore the data](#Explore_the_data)
-4. [Code availability](#Code_availability)
-5. [Contact](#Support_or_Contact)
-6. [Other links](#Other_links)
+2. [Data availability](#Data-availability)
+3. [Explore the data](#Explore-the-data)
+4. [Code availability](#Code-availability)
+5. [Contact](#Support-or-Contact)
+6. [Other links](#Other-links)
 
    
 
