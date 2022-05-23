@@ -28,7 +28,7 @@ Various forms of the transcriptomics data such as raw counts, normalised counts 
 | `embryo_scarfweb.h5ad`                                                | AnnData object with raw counts for processing with [scanpy](https://scanpy.readthedocs.io/en/stable/index.html). |
 | `embryo_raw_counts.h5ad`                                                  | AnnData object with log normalised counts, metadata and main batch corrected layouts. |
 | `embryo_sce.rds`                                                  | Contains a `SingleCellExperiment` object for processing in R. |
-| `embryo_counts.rds`                                               | Counts matrix in MatrixMarket format                         |
+| `embryo_counts.rds`                                               | Counts matrix in sparse format for processing in R.                         |
 
 Raw scRNA-seq files have been deposited in arrayexpress under the accession number E-MTAB-11763 (This project is under curation and will remain temporarly private). For details of the other, externally generated datasets used in our analysis, see the methods section of the paper. 
 
