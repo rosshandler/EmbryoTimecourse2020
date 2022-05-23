@@ -25,16 +25,10 @@ This data is an extension of a previously reported scRNA-Seq atlas covering mous
 Various forms of the transcriptomics data such as raw counts, normalised counts and metadata are available [here](https://cloud.mrc-lmb.cam.ac.uk/s/yxq7FRtYsLyF3jQ) for loading into R and python. 
 | File name                                                    | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `data.h5ad`                                                | AnnData object with raw counts for processing with [scanpy](https://scanpy.readthedocs.io/en/stable/index.html). |
-| `data_processed.h5ad`                                                  | AnnData object with log normalised counts, metadata and main batch corrected layouts. |
-| `sce.rds`                                                  | Contains a `SingleCellExperiment` object for processing in R. |
-| `counts.mtx`                                               | Counts matrix in MatrixMarket format                         |
-| `logcounts.mtx`                                            | Normalised logcounts in MatrixMarket format                  |
-| `meta.tsv`                                                 | Per-cell observations (e.g. sample, cell type annotation, stage) |
-| `genes.tsv`                                                | Ensembl codes and gene names for the scRNA-seq features.     |
-| `sizefactors.tsv`                                          | Normalisation size factors computed for each cell using scran. |
-| `corrected_pcs.tsv`                                        | The top 50 principal components resulting from fastMNN batch correction. |
-| `r_reducedDims.rds` `r_umap.tsv` `r_tsne.tsv` `r_fa.tsv` `r_umap3d.tsv` | List of DataFrames containing coordinates for reduced dimensionality representations (e.g. UMAP, TSNE, PCA). |
+| `embryo_scarfweb.h5ad`                                                | AnnData object with raw counts for processing with [scanpy](https://scanpy.readthedocs.io/en/stable/index.html). |
+| `embryo_raw_counts.h5ad`                                                  | AnnData object with log normalised counts, metadata and main batch corrected layouts. |
+| `embryo_sce.rds`                                                  | Contains a `SingleCellExperiment` object for processing in R. |
+| `embryo_counts.rds`                                               | Counts matrix in MatrixMarket format                         |
 
 Raw scRNA-seq files have been deposited in arrayexpress under the accession number E-MTAB-11763 (This project is under curation and will remain temporarly private). For details of the other, externally generated datasets used in our analysis, see the methods section of the paper. 
 
