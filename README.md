@@ -1,7 +1,7 @@
 ## Tracking Early Mammalian Organogenesis – Prediction and Validation of Differentiation Trajectories at Whole Organism Scale
 
 
-**Ivan Imaz-Rosshandler<sup>6,\*,</sup>,Christina Rode,Carolina Guibentif<sup>4,*,</sup>,Mai-Linh Ton<sup>1,2,</sup>,Parashar Dhapola<sup>6</sup>, Daniel Keitley<sup>3</sup>,Ricard Argelaguet<sup>3</sup>, Marella de Brujin, John Marioni<sup>7,8,9</sup>, Berthold Göttgens<sup>1,2</sup>**
+**Ivan Imaz-Rosshandler<sup>3,\*</sup>,Christina Rode<sup>4,*</sup>,Carolina Guibentif<sup>5,*</sup>,Mai-Linh Ton<sup>1,2</sup>,Parashar Dhapola<sup>10</sup>, Daniel Keitley<sup>6</sup>,Ricard Argelaguet<sup>11</sup>, Göran Karlsson<sup>10</sup>,Marella de Brujin<sup>4/sup>, John Marioni<sup>7,8,9</sup>, Berthold Göttgens<sup>1,2</sup>**
 
 ### Table of Contents
 
@@ -78,19 +78,23 @@ General queries can be directed to [Bertie Göttgens](bg200@cam.ac.uk) , [John M
 
 2. *Wellcome-Medical Research Council Cambridge Stem Cell Institute, University of Cambridge, Cambridge, UK*
 
-3. *Department of Zoology, University of Cambridge, Cambridge, UK*
+3. *MRC Laboratory of Molecular Biology, Cambridge, UK* 
 
-4. *Department of Microbiology and Immunology, University of Gothenburg, Gothenburg, Sweden*
+4. *MRC Molecular Hematology Unit, MRC Weatherall Institute of Molecular Medicine, Raadcliffe Department of Medicine, University of Oxford, UK*
 
-5. *Department of Pathology & Imaging, Novo Nordisk, Måløv, Denmark*
+5. *Department of Microbiology and Immunology, University of Gothenburg, Gothenburg, Sweden*
 
-6. *Medical Research Council Laboratory of Molecular Biology, Cambridge, UK*
+6. *Department of Zoology, University of Cambridge, Cambridge, UK*
 
 7. *Wellcome Sanger Institute, Wellcome Genome Campus, Cambridge, UK*
 
 8. *European Molecular Biology Laboratory European Bioinformatics Institute, Cambridge, UK*
 
 9. Cancer Research UK Cambridge Institute, University of Cambridge Cambridge, UK
+
+10. *Division of Molecular Hematology, Lund Stem Cell Center, Lund University, Sweden*
+
+11. *Los Altos lab*
 
    \* Authors contributed equally
 
