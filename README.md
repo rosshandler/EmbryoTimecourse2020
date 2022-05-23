@@ -1,7 +1,7 @@
 ## Tracking Early Mammalian Organogenesis – Prediction and Validation of Differentiation Trajectories at Whole Organism Scale
 
-**List of authors to be added** 
 
+**Ivan Imaz-Rosshandler<sup>6,\*,</sup>,Christina Rode,Carolina Guibentif<sup>4,*,</sup>,Mai-Linh Ton<sup>1,2,</sup>,Parashar Dhapola<sup>6</sup>, Daniel Keitley<sup>3</sup>,Ricard Argelaguet<sup>3</sup>, Marella de Brujin, John Marioni<sup>7,8,9</sup>, Berthold Göttgens<sup>1,2</sup>**
 
 ### Table of Contents
 
@@ -22,7 +22,7 @@ Early organogenesis represents a key step in animal development, whereby pluripo
 
 This data is an extension of a previously reported scRNA-Seq atlas covering mouse gastrulation and the early initiation of organogenesis through a densely sampled time-course of 6h sampling intervals from E6.5 to E8.5 (Pijuan-Sala B., Griffiths J. A., Guibentif C. et al., 2019) with newly sampled time points (E8.75-E9.5) as well as one overlapping time point (E8.5) to facilitate data integration. Combined, the new ‘extended’ atlas, ranging from E6.5 to E9.5 contains 430,339 cells across 13 time points spanning 3 days of mouse development 
 
-Various forms of the transcriptomics data are available [here](to be located at JCBC) for loading into R and python. 
+Various forms of the transcriptomics data such as raw counts, normalised counts and metadata are available [here](https://cloud.mrc-lmb.cam.ac.uk/s/yxq7FRtYsLyF3jQ) for loading into R and python. 
 | File name                                                    | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | `data.h5ad`                                                | AnnData object with raw counts for processing with [scanpy](https://scanpy.readthedocs.io/en/stable/index.html). |
